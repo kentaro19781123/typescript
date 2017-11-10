@@ -3,11 +3,98 @@
 <head>
 <meta charset="utf-8">
 <title>Test</title>
-
+<script src="hello.js"></script>
+<style>
+div {
+  background:#e6e6e6;
+  border:1px solid #ccc;
+  padding:10px;
+  border-radius:5px;
+}
+</style>
 </head>
 <body>
 
-<p><script src="hello.js"></script></p>
+  <h1>TypeScriptの基本文法</h1>
+
+  <h2>型を指定</h2>
+  <pre>var 通常の環境変数;
+    何度も宣言できる
+    var a:any = 1;
+    var a:any = 'hello';
+    ただし、再宣言で型を変更することはできない。
+    var a:number = 1;
+    var a:string = 'hello'; //型の変更はできない
+
+    let ローカル変数宣言;
+    宣言された構文内でのみ利用できる
+    let a:any = 1;
+    let a:any = 'hello'; //再宣言できない
+
+    const 定数宣言;
+    定数の宣言のため、値の変更は行えない
+    let同様、構文内でのみ利用できる
+    const 定数 = 値;</pre>
+  <div>
+    <script>sample1();</script>
+  </div>
+
+
+  <h2>配列の宣言</h2>
+  <pre>同じ配列に異なる型を代入できない
+  予想外の型が代入されるのを防げる</pre>
+  <div>
+    <script>sample2();</script>
+  </div>
+
+
+
+  <h2>型のエイリアス</h2>
+  <pre>あらかじめ型名にエイリアス（別名）を設定することができる
+  type 名前 = 型名;
+  type myname = string;
+  type mail = string;
+  変数名がわかりにくいものでも、型名で内容がわかる
+  let a:myname;
+  let b:mail;</pre>
+
+
+  <h2>列挙型（enum）について</h2>
+  <pre>あらかじめ用意された値のいづれかのみ代入できる型
+  enum 型名 {値1, 値2, .....};</pre>
+  <div>
+    <script>sample3();</script>
+  </div>
+
+
+
+  <h2>タプル（tuple）型について</h2>
+  <pre>複数の値のセット
+  配列の１つ１つの要素に型を指定することで、
+  決まった形式のデータセットを用意することができる
+  let 変数 : [ 型1, 型2, .....];
+  変数 = [ 値1, 値2, ......];</pre>
+  <div>
+    <script>sample4();</script>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>

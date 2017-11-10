@@ -4,30 +4,82 @@
 <meta charset="utf-8">
 <title>Test2</title>
 <script src="hello2.js"></script>
+<style>
+div {
+  background:#e6e6e6;
+  border:1px solid #ccc;
+  padding:10px;
+  border-radius:5px;
+}
+</style>
 </head>
 <body>
 
-<h1>Sample</h1>
-<p id="msg"></p>
-<input type="text" id="text1">
-<input type="button" onclick="doClick();" value="CLICK">
+<h1>関数とオブジェクト指向</h1>
+<h2>関数の定義</h2>
+<pre>function 関数名 ( 変数 : 型, ..... ) : 戻り値の型 { 内容 }
+  引数や戻り値に型の指定が可能</pre>
+<div>
+  <p id="msg"></p>
+  <input type="text" id="text1">
+  <input type="button" onclick="doClick();" value="CLICK">
+</div>
 
 
-<p id="msg2"></p>
-<input type="text" id="text2">
-<input type="button" onclick="doClick2();" value="CLICK">
+<h2>オプション引数について</h2>
+<pre>引数の変数名の後に「?」をつけるとその引数は省略可能となる</pre>
+<div>
+  <p id="msg2"></p>
+  <input type="text" id="text2">
+  <input type="button" onclick="doClick2();" value="CLICK">
+</div>
 
 
-<p id="msg3"></p>
-<input type="button" onclick="doClick3();" value="CLICK">
+<h2>オーバーロード</h2>
+<pre>convert関数で変換している
+同じ名前の関数を複数用意することができる</pre>
+<div>
+  <p id="msg3"></p>
+  <input type="button" onclick="doClick3();" value="CLICK">
+</div>
 
 
-<p id="msg4"></p>
-<input type="button" onclick="doClick4();" value="CLICK">
+<h2>総称型（Generics）について</h2>
+<pre>
+型そのものをパラメーター化し、後から特定して呼び出せるようにする
+オーバーロードと違い関数宣言をいくつも用意する必要がない
+</pre>
+<div>
+  <p id="msg4"></p>
+  <input type="button" onclick="doClick4();" value="CLICK">
+</div>
 
 
-<p id="msg5"></p>
-<input type="button" onclick="doClick5();" value="CLICK">
+<h2>可変長引数について</h2>
+<pre>
+function 関数名 ( ... 変数 : 型 ) {}
+引数に「...」つけると可変長引数になり、
+その型の引数をいくつ付けても処理できるようになる</pre>
+<div>
+  <p id="msg5"></p>
+  <input type="button" onclick="doClick5();" value="CLICK">
+</div>
+
+<h2>アロー関数について</h2>
+<pre>
+(引数の指定) => 実行する処理;
+関数の定義を値として利用できる
+１行の場合、式の結果が戻り値として帰ってくる
+複数行の場合、{}をつけて処理を行う
+(n:number)=> n * n;
+let fnc:(number) => number = (n:number)=> n * n;
+(number) => numberが変数fncの型になる
+</pre>
+<div>
+  <p id="msg6"></p>
+  <input type="text" id="text6">
+  <input type="button" onclick="doClick6();" value="CLICK">
+</div>
 
 </body>
 </html>

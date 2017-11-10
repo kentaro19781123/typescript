@@ -3,8 +3,6 @@
 ////////////////////////
 
 //関数の定義
-//function 関数名 ( 変数 : 型, ..... ) : 戻り値の型 { 内容 }
-//引数や戻り値に型の指定が可能
 function calc(price:number, tax:number):number {
   return Math.floor(price * (1.0 + tax));
 }
@@ -16,7 +14,7 @@ function doClick():void {
 }
 
 
-//引数の変数名の後に「?」をつけるとその引数は省略可能となる
+//
 function calc2(price:number, tax?:number) {
   let tx = 0;
   if(tax) {
@@ -33,9 +31,8 @@ function doClick2():void {
   msg2.innerHTML = calc2(text2.value) + '円';
 }
 
-//オーバーロード
-//convert関数で変換している
-//同じ名前の関数を複数用意することができる
+
+//
 function convert(item:number):string;
 function convert(item:string):string;
 function convert(item:boolean):string;
@@ -57,9 +54,7 @@ function doClick3():void {
   msg3.innerHTML = convert(val);
 }
 
-//総称型（Generics）について
-//型そのものをパラメーター化し、後から特定して呼び出せるようにする
-//オーバーロードと違い関数宣言をいくつも用意する必要がない
+//
 function convert<T>(item:T):string {
   switch (typeof item){
     case 'number':
@@ -80,10 +75,7 @@ function doClick4():void {
 }
 
 
-//可変長引数について
-//function 関数名 ( ... 変数 : 型 ) {}
-//引数に「...」つけると可変長引数になり、
-//その型の引数をいくつ付けても処理できるようになる
+//
 function total( ...item:number[]):number {
   let re:number = 0;
   for(let i:number = 0; i < item.length;i++){
@@ -97,5 +89,24 @@ function doClick5():void {
   msg5.innerHTML = total(1, 2, 3, 4, 5);
 }
 
-//アロー関数について
-//(引数の指定) => 実行する処理;
+
+//
+function print(n:number, f:(number)=>number):string {
+  var re:number = f(n);
+  return '<p>結果：' + re + '</p>';
+}
+
+function doClick6():void {
+  let val:number = document.querySelector('#text6').value * 1;
+  let msg:Element = document.querySelector('#msg6');
+
+  let a:(number)=>number = (n:number)=> n * n;
+  let b:(number)=>number = (n:number)=>{
+    let total:number = 0;
+    for(let i:number = 1;i <=n;i++){
+      total += i;
+    }
+    return total;
+  };
+  msg.innerHTML = print(val, b);
+}

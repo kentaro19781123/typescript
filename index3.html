@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Test3</title>
+<script src="hello3.js"></script>
+<style>
+div {
+  background:#e6e6e6;
+  border:1px solid #ccc;
+  padding:10px;
+  border-radius:5px;
+}
+</style>
+</head>
+<body>
+<h1>クラス型オブジェクト</h1>
+
+<h2>classによるクラス定義</h2>
+<pre>var 変数 : クラス = new クラス ( 引数 );
+クラスというオブジェクトを作成し、これをもとにオブジェクトを作成する
+クラスはインスタンスを利用する。インスタンスはクラスを実体化したオブジェクト
+クラスの中に保管できるもの
+コンストラクタ：インスタンスを作成する際の初期化処理を用意する特別なメソッド
+プロパティ：オブジェクト内に値を保持するための変数
+メソッド：オブジェクト内に用意される関数</pre>
+<div>
+<p id="msg"></p>
+<input type="text" id="text1">
+<input type="button" onclick="doClick();" value="CLICK">
+</div>
+
+
+<h2>アクセス修飾子</h2>
+<pre>
+  プロパティやメソッドがどの範囲からアクセス可能か指定する
+  public：どこからでもアクセスできる
+  private：クラスの中からしかアクセスできません
+  protected：基本的にprivateと同じだが、「継承」利用の場合、サブクラスからもアクセスできる
+  class Person {
+    private name:string;
+    protected age:number;
+
+    constructor(n:string, y:number) {
+      ......
+    }
+    public print():string {
+      ......
+    }
+  }</pre>
+
+<h2>プロパティとアクセサ</h2>
+<pre>プロパティへのアクセスを制御するための機能
+get 名前(){....}
+set 名前( 引数 ){....}</pre>
+<div>
+<p id="msg2"></p>
+<input type="text" id="text2">
+<input type="button" onclick="doClick2();" value="CLICK">
+</div>
+
+
+<h2>クラスの継承</h2>
+<pre>継承は既にあるクラスのすべての機能を引き継いで新しいクラスを定義する
+既に作成したクラスよ有効活用できる
+class クラス extends 継承するクラス {....}</pre>
+<div>
+<p id="msg3"></p>
+<input type="text" id="text3">
+<input type="button" onclick="doClick3();" value="CLICK">
+</div>
+
+
+<h2>メソッドのオーバーライド</h2>
+<pre>すべてprintで呼び出せるように</pre>
+<div>
+<p id="msg4"></p>
+<input type="text" id="text4">
+<input type="button" onclick="doClick4();" value="CLICK">
+</div>
+
+
+
+<h2>クラスプロパティとクラスメソッド</h2>
+<pre>インスタンスから呼び出すのではなく、クラス本体に置いて利用する</pre>
+<div>
+<p id="msg5"></p>
+<input type="text" id="text5">
+<input type="button" onclick="doClick5();" value="CLICK">
+</div>
+
+
+<h2>インターフェイスについて</h2>
+<pre>クラスに必須となるプロパティやメソッドをまとめたもの
+インターフェイスの定義
+interface 名前 {
+  ....プロパティ、メソッドなど...
+}
+インターフェイスの利用
+class クラス implements インターフェイス { .... }</pre>
+
+<div>
+<p id="msg6"></p>
+<input type="text" id="text6">
+<input type="button" onclick="doClick6();" value="CLICK">
+</div>
+
+
+</body>
+</html>

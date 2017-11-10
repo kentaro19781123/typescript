@@ -2,8 +2,6 @@
 // 関数とオブジェクト指向 //
 ////////////////////////
 //関数の定義
-//function 関数名 ( 変数 : 型, ..... ) : 戻り値の型 { 内容 }
-//引数や戻り値に型の指定が可能
 function calc(price, tax) {
     return Math.floor(price * (1.0 + tax));
 }
@@ -12,7 +10,7 @@ function doClick() {
     var msg = document.querySelector('#msg');
     msg.innerHTML = calc(text1.value, 0.08) + '円';
 }
-//引数の変数名の後に「?」をつけるとその引数は省略可能となる
+//
 function calc2(price, tax) {
     var tx = 0;
     if (tax) {
@@ -43,9 +41,7 @@ function doClick3() {
     var msg3 = document.querySelector('#msg3');
     msg3.innerHTML = convert(val);
 }
-//総称型（Generics）について
-//型そのものをパラメーター化し、後から特定して呼び出せるようにする
-//オーバーロードと違い関数宣言をいくつも用意する必要がない
+//
 function convert(item) {
     switch (typeof item) {
         case 'number':
@@ -63,10 +59,7 @@ function doClick4() {
     var msg4 = document.querySelector('#msg4');
     msg4.innerHTML = convert(val);
 }
-//可変長引数について
-//function 関数名 ( ... 変数 : 型 ) {}
-//引数に「...」つけると可変長引数になり、
-//その型の引数をいくつ付けても処理できるようになる
+//
 function total() {
     var item = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -82,5 +75,21 @@ function doClick5() {
     var msg = document.querySelector('#msg5');
     msg5.innerHTML = total(1, 2, 3, 4, 5);
 }
-//アロー関数について
-//(引数の指定) => 実行する処理;
+//
+function print(n, f) {
+    var re = f(n);
+    return '<p>結果：' + re + '</p>';
+}
+function doClick6() {
+    var val = document.querySelector('#text6').value * 1;
+    var msg = document.querySelector('#msg6');
+    var a = function (n) { return n * n; };
+    var b = function (n) {
+        var total = 0;
+        for (var i = 1; i <= n; i++) {
+            total += i;
+        }
+        return total;
+    };
+    msg.innerHTML = print(val, b);
+}
